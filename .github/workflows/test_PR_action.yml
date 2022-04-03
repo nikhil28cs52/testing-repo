@@ -4,7 +4,8 @@ name: check action workflow works for Pull request
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the 
+  push:
+  
   pull_request:
     branches: [ test-branch ]
 
@@ -25,10 +26,10 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo Hello, world!
+        run: echo "$GITHUB_SHA"
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
           echo Add other actions to build,
-          echo test, and deploy your project.
+          echo $GITHUB_SHA
